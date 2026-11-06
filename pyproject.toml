@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cisco-pt-mcp-plus"
+version = "0.1.0"
+description = "REST + MCP gateway for Cisco Packet Tracer: a patched cisco-pt-mcp module with a generic eval hook, server-service, DHCP/DNS, PC-terminal and IOS show tools"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["aiohttp>=3.9", "python-socketio>=5.11", "httpx>=0.27", "mcp>=1.2"]
+keywords = ["cisco", "packet-tracer", "mcp", "networking", "automation"]
+
+[project.scripts]
+ptgateway = "ptgateway.server:main"
+ptgateway-mcp = "ptgateway.mcp_proxy:main"
+
+[tool.setuptools]
+packages = ["ptgateway"]
